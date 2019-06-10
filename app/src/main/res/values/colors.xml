@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4cab6d</color>
+    <color name="colorPrimaryDark">#3f915f</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="light_gray">#dbdbdb</color>
+    <color name="gray">#7e7e7e</color>
+    <color name="semi_gray">#979797</color>
+    <color name="dark_gray">#696969</color>
+    <color name="bg_color">#f7f7f7</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black_effective">#2a2a2a</color>
+    <color name="shadow">#d0d8dc</color>
+    <color name="transparent">#00000000</color>
+    <color name="translucent_white">#88ffffff</color>
+    <color name="fb">#3b5998</color>
+    <color name="google">#d34836</color>
+
+    <!--Design colors-->
+    <color name="red_dark">#F06423</color>
+    <color name="red_dark2">#D85A1B</color>
+    <color name="cyan_light">#c9ebee</color>
+    <color name="cyan">#b5e3e7</color>
+    <color name="cyan_dark">#70BDC6</color>
+    <color name="navy_blue">#214258</color>
+    <color name="navy_blue_dark">#1C3A4E</color>
+    <color name="light_green">#78DC96</color>
+    <color name="light_blue">#55C8F0</color>
+    <color name="blue_black_dark">#13171d</color>
+    <color name="blue_black_light">#516179</color>
+    <color name="blue_grey_light">#A5B4C8</color>
+    <color name="orange">#FFA500</color>
+    <color name="yellow">#fff44f</color>
+
+
+
+    <color name="email_password_field_background_color">#f1f1f1</color>
+    <color name="green_login_button">#4cab6d</color>
+
+    <color name="primary_dark_login">#f8f8f8</color>
+    <color name="separator">#e1e1e1</color>
+
+
+    <color name="selected_background_color">#15a4fa</color>
+    <color name="unselected_background_color">#ffffff</color>
+    <color name="shadow_background_color">#28415f</color>
+    <color name="unselected_header_background_color">#ffffff</color>
+
+    <color name="unselected_text_color">#537095</color>
+    <color name="selected_text_color">#ffffff</color>
+    <color name="separator_color">#ebebeb</color>
+
+    <color name="popup_menu_item_text_color">#88a5c9</color>
+
+    <color name="female_icon_color">#e9515f</color>
+    <color name="male_icon_color">#f28944</color>
+</resources>

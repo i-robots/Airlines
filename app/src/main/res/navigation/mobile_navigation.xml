@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            app:startDestination="@+id/home_dest">
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="com.example.airlines.HomeFragment"
+        android:label="Home AirLines"
+        tools:layout="@layout/home_fragment">
+
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/check_in_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_dest_to_flow_step_two_dest"
+            app:destination="@id/book_dest" />
+        <action
+                android:id="@+id/action_home_dest_to_bookFragment"
+                app:destination="@id/book_dest" app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left" app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/action_home_dest_to_signup_dest" app:destination="@id/signup_dest"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/action_home_dest_to_addFlightFragment" app:destination="@id/addFlightFragment"/>
+        <action android:id="@+id/action_home_dest_to_addPlaneFragment" app:destination="@id/addPlaneFragment"/>
+        <action android:id="@+id/action_home_dest_to_trip_dest" app:destination="@id/trip_dest"/>
+        <action android:id="@+id/action_home_dest_to_seeFlightFragment" app:destination="@id/seeFlightFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/check_in_dest"
+            android:name="com.example.airlines.CheckInFragment"
+            tools:layout="@layout/check_in_fragment" android:label="Check-In">
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/book_dest"
+            android:name="com.example.airlines.bookFragment"
+            tools:layout="@layout/book_fragment" android:label="Book Your Flight">
+
+    </fragment>
+    <fragment
+            android:id="@+id/trip_dest"
+            android:name="com.example.airlines.TripFragment"
+            android:label="My Trips"
+            tools:layout="@layout/my_trip_fragment"/>
+
+    <fragment
+        android:id="@+id/signup_dest"
+        android:name="com.example.airlines.SignupFragment"
+        android:label="SignUp"
+        tools:layout="@layout/signup_fragment" />
+    <fragment android:id="@+id/addFlightFragment" android:name="com.example.airlines.AddFlightFragment"
+              android:label="Add Flight" tools:layout="@layout/fragment_add_flight"/>
+    <fragment android:id="@+id/addPlaneFragment" android:name="com.example.airlines.AddPlaneFragment"
+              tools:layout="@layout/fragment_add_plane" android:label="Add Plane"/>
+    <fragment android:id="@+id/customerListFragment" android:name="com.example.airlines.viewmodel.CustomerListFragment"
+              android:label="Passanger List" tools:layout="@layout/fragment_customer_list"/>
+    <fragment android:id="@+id/seeFlightFragment" android:name="com.example.airlines.SeeFlightFragment"
+              android:label="See Available Flights" tools:layout="@layout/fragment_see_flight"/>
+
+
+</navigation>
