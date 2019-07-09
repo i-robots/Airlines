@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.ArrayAdapter
+import android.widget.ListAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
@@ -27,6 +29,8 @@ class AddFlightFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_add_flight, container, false)
+
+        //planeViewModel.allPlane
 
         val countryAdapter = ArrayAdapter.createFromResource(binding.root.context,R.array.country,
                         android.R.layout.simple_spinner_item)

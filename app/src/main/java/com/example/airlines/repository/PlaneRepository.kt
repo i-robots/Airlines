@@ -10,8 +10,16 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class PlaneRepository (private val planeDao: PlaneDao) {
-    fun allPlanes(): LiveData<List<Plane>> = planeDao.getAllPlanes()
+class PlaneRepository (private val planeDao: PlaneDao,private val planeApiService: PlaneApiService) {
+    fun allPlanes(): LiveData<List<Plane>> {
+        GlobalScope.launch(Dispatchers.IO){
+            val response: Response<List<Plane>> = planeApiService.getAllPlanesAsync().await()
+            for(plane in response.body()!!){
+                planeDao.insertPlane(plane)
+            }
+        }
+        return planeDao.getAllPlanes()
+    }
 
     fun getPlaneByPlaneNo(no:Int){
         planeDao.getPlaneByNo(no)
@@ -20,9 +28,8 @@ class PlaneRepository (private val planeDao: PlaneDao) {
     fun insertPlane(plane: Plane){
         GlobalScope.launch(Dispatchers.IO) {
             val response: Response<Void> =
-                PlaneApiService.getInstance().
-                    insertPlaneAsync(plane).await()
-            Log.d("", response.message())
+                planeApiService.insertPlaneAsync(plane).await()
+            Log.d("abc", "${response.body()}")
         }
         planeDao.insertPlane(plane)
     }

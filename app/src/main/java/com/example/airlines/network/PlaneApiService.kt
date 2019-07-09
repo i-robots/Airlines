@@ -11,11 +11,11 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
 
 interface PlaneApiService {
-    @GET("planes/{id}")
+    @GET("planes/{planeNo}")
     fun findByPlaneByNoAsync(@Path("planeNo") planeNo: Int): Deferred<Response<Plane>>
 
     @GET("planes")
-    fun getAllPlanesAsync(@Query("dest") dest: String): Deferred<Response<Plane>>
+    fun getAllPlanesAsync(): Deferred<Response<List<Plane>>>
 
     @POST("planes")
     fun insertPlaneAsync(@Body newPlane: Plane): Deferred<Response<Void>>

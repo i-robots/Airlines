@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.airlines.data.AppDatabase
 import com.example.airlines.data.Plane
+import com.example.airlines.network.PlaneApiService
 import com.example.airlines.repository.PlaneRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,7 +17,7 @@ class PlaneViewModel(application: Application): AndroidViewModel(application) {
 
     init {
         val planeDao = AppDatabase.getDatabase(application).planeDao()
-        planeRepository = PlaneRepository(planeDao)
+        planeRepository = PlaneRepository(planeDao, PlaneApiService.getInstance())
         allPlane = planeRepository.allPlanes()
     }
 

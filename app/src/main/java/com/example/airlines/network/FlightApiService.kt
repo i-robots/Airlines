@@ -15,9 +15,6 @@ interface FlightApiService {
     fun findByFlightNoAsync(@Path("flightNo") flightNo: Int): Deferred<Response<Flight>>
 
     @GET("flights")
-    fun findByDestinationAsync(): Deferred<Response<List<Flight>>>
-
-    @GET("flights")
     fun getAllFlightsAsync(): Deferred<Response<List<Flight>>>
 
     @POST("flights")
