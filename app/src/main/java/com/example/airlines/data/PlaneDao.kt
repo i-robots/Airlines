@@ -19,6 +19,9 @@ interface PlaneDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertPlane(plane: Plane):Long
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(planes: List<Plane>)
+
     @Update
     fun updatePlane(plane: Plane):Int
 

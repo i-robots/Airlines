@@ -62,7 +62,7 @@
               android:label="Add Flight" tools:layout="@layout/fragment_add_flight"/>
     <fragment android:id="@+id/addPlaneFragment" android:name="com.example.airlines.AddPlaneFragment"
               tools:layout="@layout/fragment_add_plane" android:label="Add Plane"/>
-    <fragment android:id="@+id/customerListFragment" android:name="com.example.airlines.viewmodel.CustomerListFragment"
+    <fragment android:id="@+id/customerListFragment" android:name="com.example.airlines.CustomerListFragment"
               android:label="Passanger List" tools:layout="@layout/fragment_customer_list"/>
     <fragment android:id="@+id/seeFlightFragment" android:name="com.example.airlines.SeeFlightFragment"
               android:label="See Available Flights" tools:layout="@layout/fragment_see_flight"/>

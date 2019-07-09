@@ -4,42 +4,35 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.airlines.data.Customer
 import com.example.airlines.data.Flight
-import com.example.airlines.network.CustomerApiService
-import com.example.airlines.network.FlightApiService
-import kotlinx.android.synthetic.main.recycler_view_item.view.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import retrofit2.Response
+import com.example.airlines.databinding.FlightListRecyclerViewItemBinding
 
-class FlightListAdapter(context: Context): RecyclerView.Adapter<FlightListAdapter.FlightViewHolder>() {
+class FlightListAdapter(val context: Context): RecyclerView.Adapter<FlightListAdapter.FlightViewHolder>() {
+    private var flights:List<Flight> = emptyList()
 
-    private val inflater = LayoutInflater.from(context)
-    private val flights:List<Flight> = emptyList()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlightViewHolder {
+        val inflater = LayoutInflater.from(context)
+        val recyclerViewItem:FlightListRecyclerViewItemBinding = DataBindingUtil.inflate(inflater,R.layout.flight_list_recycler_view_item,parent,false)
+        return FlightViewHolder(recyclerViewItem)
+    }
 
     override fun onBindViewHolder(holder: FlightViewHolder, position: Int) {
         val flight = flights[position]
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlightViewHolder {
-        val recyclerViewItem = inflater.inflate(R.layout.recycler_view_item,parent,false)
-
-        GlobalScope.launch(Dispatchers.IO) {
-            val response: Response<List<Customer>> =
-                CustomerApiService.getInstance().getAllCustomersAsync().await()
-        }
-
-        return FlightViewHolder(recyclerViewItem)
+        holder.binding.viewmodel = flight
     }
 
     override fun getItemCount(): Int {
         return flights.size
     }
+    fun setFlight(flight:List<Flight>){
+        flights = flight
+        notifyDataSetChanged()
+    }
 
-    inner class FlightViewHolder(itemVIew: View):RecyclerView.ViewHolder(itemVIew){
-
+    class FlightViewHolder(itemVIew: FlightListRecyclerViewItemBinding):RecyclerView.ViewHolder(itemVIew.root){
+        val binding:FlightListRecyclerViewItemBinding = itemVIew
     }
 }

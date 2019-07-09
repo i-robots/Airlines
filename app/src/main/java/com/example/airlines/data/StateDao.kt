@@ -17,11 +17,5 @@ interface StateDao {
     fun getAllStates(): LiveData<List<State>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertState(state: State):Long
-
-    @Update
-    fun updateState(state: State):Int
-
-    @Delete
-    fun deleteState(state: State):Int
+    fun insertAll(states: List<State>)
 }

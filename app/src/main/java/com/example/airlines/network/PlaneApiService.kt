@@ -28,7 +28,7 @@ interface PlaneApiService {
 
     companion object {
 
-        private val baseUrl = "http://127.0.0.1:9090/api/"
+        private val baseUrl = "http://192.168.43.174:5001/api/"
 
         fun getInstance(): PlaneApiService {
 

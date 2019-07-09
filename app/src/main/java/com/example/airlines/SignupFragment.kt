@@ -24,12 +24,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.airlines.data.Customer
-import com.example.airlines.network.CustomerApiService
-import kotlinx.android.synthetic.main.signup_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class SignupFragment : Fragment() {
 
@@ -56,12 +50,7 @@ class SignupFragment : Fragment() {
         view.findViewById<View>(R.id.signup_button).setOnClickListener {
             val customer = readFields()
             Log.d("customer object:", " = > $customer")
-            GlobalScope.launch(Dispatchers.IO) {
-                val response: Response<Void> =
-                    CustomerApiService.getInstance().
-                        insertCustomerAsync(customer).await()
-                Log.d("", response.message())
-            }
+            //customerRepo.insertCustomer(customer)
             Toast.makeText(context, "Customer Added", Toast.LENGTH_LONG).show()
         }
 

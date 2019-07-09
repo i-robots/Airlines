@@ -12,5 +12,5 @@ interface ContinentDao {
     fun getAllContinents(): LiveData<List<Continent>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertContinent(continent: Continent): Long
+    fun insertAll(continents: List<Continent>)
 }

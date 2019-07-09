@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_activity)
-
         val host: NavHostFragment = supportFragmentManager
                 .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment? ?: return
 
@@ -57,20 +56,10 @@ class MainActivity : AppCompatActivity() {
         setupNavigationMenu(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            val dest: String = try {
-                resources.getResourceName(destination.id)
-            } catch (e: Resources.NotFoundException) {
-                Integer.toString(destination.id)
-            }
-
             if(!connected()){
                 Toast.makeText(this@MainActivity, "You are not connected to the internate",
                     Toast.LENGTH_SHORT).show()
             }
-
-            Toast.makeText(this@MainActivity, "Navigated to $dest",
-                    Toast.LENGTH_SHORT).show()
-            Log.d("NavigationActivity", "Navigated to $dest")
         }
     }
 

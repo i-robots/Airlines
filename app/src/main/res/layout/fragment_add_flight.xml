@@ -1,116 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".AddFlightFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
-    <TextView
-            android:text="Add Flight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/addflight"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
-            app:fontFamily="sans-serif-condensed-light" android:textSize="24sp" android:textStyle="bold"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".AddFlightFragment">
 
 
-    <androidx.constraintlayout.widget.Guideline
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/guideline2"
-            app:layout_constraintGuide_percent="0.34"/>
-    <androidx.constraintlayout.widget.Guideline
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:layout_constraintGuide_begin="71dp" android:id="@+id/guideline4"/>
-    <TextView
-            android:text="Root Country"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:id="@+id/textView8" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="@+id/guideline4" android:textSize="14sp"/>
-    <TextView
-            android:text="Destination"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:id="@+id/textView9" app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toBottomOf="@+id/textView8"
-            android:layout_marginTop="16dp" android:textSize="18sp"/>
-    <TextView
-            android:text="Flight Duration"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:id="@+id/textView10" app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toBottomOf="@+id/textView9"
-            android:layout_marginTop="16dp" android:textSize="15sp"/>
-    <TextView
-            android:text="Flight Expense"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:id="@+id/textView11" app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toBottomOf="@+id/textView10"
-            android:layout_marginTop="16dp" android:textSize="14sp"/>
-    <Spinner
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:inputType="textPersonName"
-            android:id="@+id/spinnerRoot" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:textSize="14sp" app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" app:layout_constraintStart_toEndOf="@+id/guideline2"/>
-    <Spinner
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:id="@+id/spinnerDest" app:layout_constraintStart_toStartOf="@+id/guideline2"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerRoot" android:textSize="14sp"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:inputType="textPersonName"
-            android:hint="Add filght duration time"
-            android:ems="10"
-            android:id="@+id/duration_Et" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="@+id/guideline2" android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/spinnerDest"
-            android:textSize="14sp"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:inputType="number"
-            android:ems="10"
-            android:hint="Add flight expense"
-            android:id="@+id/expense_et"
-            app:layout_constraintStart_toStartOf="@+id/guideline2" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/duration_Et" android:textSize="14sp"/>
-    <Button
-            android:text="add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/add_flight_button" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="@+id/guideline2"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-            app:layout_constraintHorizontal_bias="0.485" android:layout_marginBottom="250dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+        <androidx.constraintlayout.widget.Guideline
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/guideline2"
+                app:layout_constraintGuide_percent="0.34"/>
+        <TextView
+                android:text="@string/root_country"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                android:textSize="16sp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/flight_no"/>
+        <TextView
+                android:text="@string/destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9" app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintTop_toBottomOf="@+id/textView8"
+                android:layout_marginTop="32dp" android:textSize="16sp"/>
+        <TextView
+                android:text="@string/flight_duration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView10" app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp" app:layout_constraintBaseline_toBaselineOf="@+id/duration_Et"/>
+        <TextView
+                android:text="@string/flight_expense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView11" app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintTop_toBottomOf="@+id/textView10"
+                android:layout_marginTop="16dp" android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/expense_et"/>
+        <Spinner
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:inputType="textPersonName"
+                android:id="@+id/spinnerRoot" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:textSize="14sp" app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/guideline2" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/flight_no"/>
+        <Spinner
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:id="@+id/spinnerDest" app:layout_constraintStart_toStartOf="@+id/guideline2"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerRoot" android:textSize="14sp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/add_filght_duration_time"
+                android:ems="10"
+                android:id="@+id/duration_Et" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2" android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/spinnerDest"
+                android:textSize="14sp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:hint="@string/add_flight_expense"
+                android:id="@+id/expense_et"
+                app:layout_constraintStart_toStartOf="@+id/guideline2" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/duration_Et" android:textSize="14sp"/>
+        <Button
+                android:text="@string/add"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:id="@+id/add_flight_button" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="@+id/guideline2"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/spinner"/>
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/update_button_id"
+                android:text="@string/update_button" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/add_flight_button" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"/>
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/delete_button_id"
+                android:text="@string/delete_button" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/update_button_id" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"/>
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/find_button_id" android:text="@string/find_button"
+                android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/find_textview"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2" android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/find_textview"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2" android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/flight_plane_id"/>
+        <TextView
+                android:text="@string/flight_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/flight_no_tv" android:textSize="16sp"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2" android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/flight_no" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2" android:layout_marginLeft="8dp"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/flight_plane_id" android:text="@string/flight_plane"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2" android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" android:textSize="16sp"/>
+        <Spinner
+                android:layout_width="0dp"
+                android:layout_height="29dp"
+                android:id="@+id/spinner" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/expense_et"
+                app:layout_constraintStart_toEndOf="@+id/flight_plane_id" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

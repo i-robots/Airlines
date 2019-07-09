@@ -17,6 +17,15 @@
     <string name="add_flight">Add Flight</string>
     <string name="add_plane">Add Plane</string>
     <string name="custome_list">Customers List</string>
+    <string name="flight_name">Flight</string>
+    <string name="flight_dest">Destination</string>
+    <string name="flight_root">Root</string>
+    <string name="flightDuration">Duration</string>
+    <string name="flightExpense">Expense</string>
+    <string name="plane_no">Plane No</string>
+    <string name="flight_Plane">Plane</string>
+    <string name="No_of_seats">No of Seats</string>
+    <string name="quality">Quality</string>
 
     <string-array name="country">
         <item>Addis Abeba</item>
@@ -31,4 +40,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="update_button">Update</string>
+    <string name="delete_button">Delete</string>
+    <string name="find_button">Find</string>
+    <string name="flight_no">Flight No</string>
+    <string name="flight_plane">Plane</string>
+    <string name="root_country">Root Country</string>
+    <string name="add_filght_duration_time">Add filght duration time</string>
+    <string name="add_flight_expense">Add flight expense</string>
+    <string name="flight_expense">Flight Expense</string>
+    <string name="destination">Destination</string>
+    <string name="flight_duration">Flight Duration</string>
+    <string name="add">add</string>
 </resources>

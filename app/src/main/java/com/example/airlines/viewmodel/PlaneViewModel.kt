@@ -23,4 +23,17 @@ class PlaneViewModel(application: Application): AndroidViewModel(application) {
     fun insertPlane(plane: Plane) = viewModelScope.launch(Dispatchers.IO){
         planeRepository.insertPlane(plane)
     }
+
+    fun getPlaneById(id:Int)= viewModelScope.launch(Dispatchers.IO){
+        planeRepository.getPlaneByPlaneNo(id)
+    }
+
+    fun updatePlane(plane: Plane) = viewModelScope.launch(Dispatchers.IO){
+        planeRepository.updatePlane(plane)
+    }
+
+    fun deletePlane(plane: Plane) = viewModelScope.launch(Dispatchers.IO){
+        planeRepository.deletePlane(plane)
+    }
+
 }

@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 @Entity
 data class Continent(
     @PrimaryKey @ColumnInfo(name="continent_name")
-    private val contientName: String
+    val contientName: String
 )

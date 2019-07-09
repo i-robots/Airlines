@@ -34,17 +34,12 @@ class AddPlaneFragment : Fragment() {
         numberOfSeats = view.findViewById(R.id.noOfSeats_et)
         quality = view.findViewById(R.id.quality_et)
 
-        view.findViewById<View>(R.id.signup_button).setOnClickListener {
-            val plane = readFields()
-            Log.d("flight object:", " = > $plane")
-            GlobalScope.launch(Dispatchers.IO) {
-                val response: Response<Void> =
-                    PlaneApiService.getInstance().
-                        insertPlaneAsync(plane).await()
-                Log.d("", response.message())
-            }
-            Toast.makeText(context, "Plane Added", Toast.LENGTH_LONG).show()
-        }
+//        view.findViewById<View>(R.id.signup_button).setOnClickListener {
+//            val plane = readFields()
+//            Log.d("flight object:", " = > $plane")
+//            //PlaneRepo.insertPlane(plane)
+//            Toast.makeText(context, "Plane Added", Toast.LENGTH_LONG).show()
+//        }
 
         return view
 

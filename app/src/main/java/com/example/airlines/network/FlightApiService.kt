@@ -11,11 +11,11 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
 
 interface FlightApiService {
-    @GET("flights/{id}")
+    @GET("flights/{flightNo}")
     fun findByFlightNoAsync(@Path("flightNo") flightNo: Int): Deferred<Response<Flight>>
 
     @GET("flights")
-    fun findByDestinationAsync(@Query("dest") dest: String): Deferred<Response<Flight>>
+    fun findByDestinationAsync(): Deferred<Response<List<Flight>>>
 
     @GET("flights")
     fun getAllFlightsAsync(): Deferred<Response<List<Flight>>>
@@ -24,14 +24,14 @@ interface FlightApiService {
     fun insertFlightAsync(@Body newFlight: Flight): Deferred<Response<Void>>
 
     @PUT("flights/{id}")
-    fun updateFlightAsnc(@Path("id") id: Long, @Body newFlight: Flight): Deferred<Response<Void>>
+    fun updateFlightAsnc(@Path("id") id: Int, @Body newFlight: Flight): Deferred<Response<Void>>
 
     @DELETE("flights/{id}")
-    fun deleteFlightAsync(@Path("id") id: Long): Deferred<Response<Void>>
+    fun deleteFlightAsync(@Path("id") id: Int): Deferred<Response<Void>>
 
     companion object {
 
-        private val baseUrl = "http://127.0.0.1:9090/api/"
+        private val baseUrl = "http://192.168.43.174:5001/api/"
 
         fun getInstance(): FlightApiService {
 

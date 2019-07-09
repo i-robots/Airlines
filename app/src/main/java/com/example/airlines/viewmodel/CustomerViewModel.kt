@@ -23,4 +23,17 @@ class CustomerViewModel(application: Application):AndroidViewModel(application) 
     fun insertCustomer(customer: Customer) = viewModelScope.launch(Dispatchers.IO){
         customerRepository.insertCustomer(customer)
     }
+
+    fun getCustomerById(id:Long)= viewModelScope.launch(Dispatchers.IO){
+        customerRepository.getCustomerById(id)
+    }
+
+    fun updateCustomer(customer: Customer) = viewModelScope.launch(Dispatchers.IO){
+        customerRepository.updateCustomer(customer)
+    }
+
+    fun deleteCustomer(customer: Customer) = viewModelScope.launch(Dispatchers.IO){
+        customerRepository.deleteCustomer(customer)
+    }
+
 }

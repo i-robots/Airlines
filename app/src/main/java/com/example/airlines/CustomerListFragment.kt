@@ -1,4 +1,4 @@
-package com.example.airlines.viewmodel
+package com.example.airlines
 
 
 import android.os.Bundle
@@ -19,6 +19,5 @@ class CustomerListFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_customer_list, container, false)
     }
-
 
 }

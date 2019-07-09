@@ -9,11 +9,11 @@ data class Flight(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "flight_no")
     val flightNo: Int,
 
-    @ColumnInfo(name = "root")
+    @ColumnInfo(name="root")
     val root: String,
 
-    @ColumnInfo(name="destination")
-    val destination:String,
+    @ColumnInfo(name="dest")
+    val dest:String,
 
     @ColumnInfo(name ="flight_duration")
     val flightDuration: String,
@@ -22,6 +22,6 @@ data class Flight(
     val flightExpense: Int,
 
     @Embedded
-    val flightPlane: Plane
+    val plane: Plane
 
 ):Serializable

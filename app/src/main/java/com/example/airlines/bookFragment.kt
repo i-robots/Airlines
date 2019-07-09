@@ -54,7 +54,7 @@ class bookFragment : Fragment() {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerDestCountry.adapter = adapter1
 
-        val numberOfPassangers = view.findViewById<EditText>(R.id.numberofpassengers)
+        //val numberOfPassangers = view.findViewById<EditText>(R.id.numberofpassengers)
 
         val bookFLight = view.findViewById<Button>(R.id.book_Flight_Button)
         bookFLight.setOnClickListener{

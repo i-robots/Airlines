@@ -19,4 +19,6 @@ data class Plane (
     @ColumnInfo(name="quality")
     val quality:String
 
-):Serializable
+):Serializable{
+    override fun toString() = name
+}

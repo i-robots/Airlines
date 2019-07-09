@@ -12,7 +12,7 @@ class MainActivityTest {
 
     @Test
     fun onCreateOptionsMenu() {
-        val result=
+
     }
 
     @Test
