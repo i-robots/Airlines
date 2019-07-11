@@ -6,11 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.ArrayAdapter
-import android.widget.ListAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.airlines.data.Flight
 import com.example.airlines.data.Plane
@@ -30,14 +29,19 @@ class AddFlightFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_add_flight, container, false)
 
-        //planeViewModel.allPlane
+        var list_of_items = arrayOf("SKYBUS", "BOEING", "AIRMAX")
+
+        val planeAdapter = ArrayAdapter(binding.root.context,android.R.layout.simple_spinner_item,list_of_items)
 
         val countryAdapter = ArrayAdapter.createFromResource(binding.root.context,R.array.country,
                         android.R.layout.simple_spinner_item)
 
         countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        planeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
         binding.spinnerRoot.adapter = countryAdapter
         binding.spinnerDest.adapter = countryAdapter
+        binding.spinner.adapter = planeAdapter
 
 
         flightViewModel = ViewModelProviders.of(this).get(FlightViewModel::class.java)
@@ -47,37 +51,49 @@ class AddFlightFragment : Fragment() {
                 binding.durationEt.text.toString(),
                 binding.expenseEt.text.toString().toInt(),
                 binding.spinnerRoot.selectedItem.toString(),
-                binding.spinnerDest.selectedItem.toString())
+                binding.spinnerDest.selectedItem.toString(),
+                binding.spinner.selectedItem.toString())
             flightViewModel.insertFlight(flight)
             Toast.makeText(context, "Flight Added", Toast.LENGTH_LONG).show()
         }
 
         binding.deleteButtonId.setOnClickListener {
-
+            val flight = readFields(binding.flightNo.text.toString().toInt(),
+                binding.durationEt.text.toString(),
+                binding.expenseEt.text.toString().toInt(),
+                binding.spinnerRoot.selectedItem.toString(),
+                binding.spinnerDest.selectedItem.toString(),
+                binding.spinner.selectedItem.toString())
+                flightViewModel.deleteFlight(flight)
         }
 
         binding.updateButtonId.setOnClickListener {
-            val id = binding.findTextview.text.toString().toInt()
-
+            val flight = readFields(binding.flightNo.text.toString().toInt(),
+                binding.durationEt.text.toString(),
+                binding.expenseEt.text.toString().toInt(),
+                binding.spinnerRoot.selectedItem.toString(),
+                binding.spinnerDest.selectedItem.toString(),
+                binding.spinner.selectedItem.toString())
+            flightViewModel.updateFlight(flight)
         }
 
         binding.findButtonId.setOnClickListener {
             val id = binding.findTextview.text.toString().toInt()
-            flightViewModel.getFlightById(id)
-//            binding.flightNo.setText(flight.flightNo)
-//            binding.durationEt.setText(flight.flightDuration)
-//            binding.expenseEt.setText(flight.flightExpense)
-//            binding.spinnerRoot.setSelection(countryAdapter.getPosition(flight.root))
-//            binding.spinnerDest.setSelection(countryAdapter.getPosition(flight.dest))
-
+                flightViewModel.getFlightById(id).observe(this, Observer {
+                    flight->flight?.let {
+                        binding.viewmodel = flight
+                    }
+                })
         }
 
         return binding.root
     }
 
-    private fun readFields(flightNo:Int, duration: String, expense:Int, root: String, dest:String): Flight {
-        var plane = Plane(1,"Boing",101,"standard")
-        return Flight(flightNo,root,dest, duration, expense, plane)
+    private fun readFields(flightNo:Int, duration: String, expense:Int, root: String, dest:String,plane:String): Flight {
+        var plane = Plane(4,plane,101,"standard")
+        val flight = Flight(flightNo,root,dest, duration, expense, plane)
+        Log.d("assert","${flight}")
+        return flight
     }
 
 }

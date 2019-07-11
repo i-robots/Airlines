@@ -28,7 +28,7 @@
     <string name="quality">Quality</string>
 
     <string-array name="country">
-        <item>Addis Abeba</item>
+        <item>Addis Ababa</item>
         <item>Bahir Dar</item>
         <item>Gonder</item>
         <item>Axum</item>

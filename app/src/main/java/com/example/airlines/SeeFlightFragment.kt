@@ -19,7 +19,6 @@ class SeeFlightFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_see_flight, container, false)
         val adapter = FlightListAdapter(this.requireContext())
         binding.flightListRecyclerId.layoutManager = LinearLayoutManager(this.requireContext())

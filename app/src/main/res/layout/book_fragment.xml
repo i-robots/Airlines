@@ -1,124 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.example.airlines.bookFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
-    <LinearLayout android:layout_width="0dp" android:layout_height="0dp"
-                  android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-                  app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                  app:layout_constraintBottom_toBottomOf="parent"
-                  android:layout_marginBottom="8dp"
-                  android:layout_marginTop="8dp"
-                  android:orientation="vertical" app:layout_constraintTop_toTopOf="parent">
-        <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-        >
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_flight_takeoff_black_24dp"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.airlines.bookFragment">
 
-            <TextView
-                    android:text="Source"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" android:textSize="20dp"/>
-
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-            <Spinner
+        <LinearLayout android:layout_width="0dp" android:layout_height="0dp"
+                      android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      android:layout_marginBottom="8dp"
+                      android:layout_marginTop="8dp"
+                      android:orientation="vertical" app:layout_constraintTop_toTopOf="parent">
+            <LinearLayout
+                    android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/spinnerSourceCountry"/>
+                    android:orientation="horizontal"
+            >
+                <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ic_flight_takeoff_black_24dp"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-        >
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_flight_land_black_24dp"/>
+                <TextView
+                        android:text="Source"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp" android:textSize="20dp"/>
 
-            <TextView
-                    android:text="Destination"
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp" android:textSize="20dp"/>
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinnerSourceCountry"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-
-            <Spinner
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/spinnerDestCountry"/>
+                    android:orientation="horizontal"
+            >
+                <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ic_flight_land_black_24dp"/>
 
-        </LinearLayout>
+                <TextView
+                        android:text="Destination"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp" android:textSize="20dp"/>
 
-        <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:text="Number of passenger"
-                    android:layout_height="match_parent"
-                    android:textSize="20dp" android:textColor="#000000"/>
-            <EditText
-                    android:layout_width="wrap_content"
-                    android:id="@+id/numberofpassengers"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:layout_height="match_parent"/>
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-            <RadioGroup
-                    android:id="@+id/radioGroup"
+            </LinearLayout>
+            <LinearLayout
                     android:layout_width="match_parent"
-                    android:contentDescription="Layouts"
-                    android:layout_height="match_parent">
-                <RadioButton
-                        android:id="@+id/radioOne"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="One Way" android:textSize="20dp"/>
-                <RadioButton
-                        android:id="@+id/radioTwo"
+                        android:id="@+id/spinnerDestCountry"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Number of passenger"
+                        android:layout_height="match_parent"
+                        android:textSize="20dp" android:textColor="#000000"/>
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:id="@+id/numberofpassengers"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:layout_height="match_parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                <RadioGroup
+                        android:id="@+id/radioGroup"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Two Way" android:textSize="20dp"/>
-            </RadioGroup>
+                        android:contentDescription="Layouts"
+                        android:layout_height="match_parent">
+                    <RadioButton
+                            android:id="@+id/radioOne"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="One Way" android:textSize="20dp"/>
+                    <RadioButton
+                            android:id="@+id/radioTwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Two Way" android:textSize="20dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                    android:layout_marginTop="30dp"
+                    android:text="Book a Flight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/book_Flight_Button"/>
+
+
         </LinearLayout>
 
-        <Button
-                android:layout_marginTop="30dp"
-                android:text="Book a Flight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/book_Flight_Button"/>
-
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -13,6 +13,9 @@ interface FlightDao {
     @Query("SELECT * FROM flight WHERE flight_no = :no LIMIT 1")
     fun getFlightByNo(no:Int):LiveData<Flight>
 
+    @Query("SELECT * FROM flight WHERE root = :root AND dest = :dest LIMIT 1")
+    fun getFlightByRootAndDest(root:String,dest:String):LiveData<Flight>
+
     @Query("SELECT * FROM flight")
     fun getAllFlights():LiveData<List<Flight>>
 

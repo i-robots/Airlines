@@ -21,47 +21,61 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
+import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import com.example.airlines.data.Book
+import com.example.airlines.data.Flight
+import com.example.airlines.databinding.BookFragmentBinding
+import com.example.airlines.viewmodel.BookViewModel
+import com.example.airlines.viewmodel.FlightViewModel
+import java.lang.Math.random
 
 
 class bookFragment : Fragment() {
+
+    private lateinit var binding: BookFragmentBinding
+    private lateinit var bookViewModel: BookViewModel
+    private lateinit var flightViewModel: FlightViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.book_fragment, container, false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.book_fragment, container, false)
 
-
-        val spinnersourceCountry = view.findViewById<Spinner>(R.id.spinnerSourceCountry)
-        val spinnerDestCountry = view.findViewById<Spinner>(R.id.spinnerDestCountry)
-
-
-
-        val adapter2 = ArrayAdapter.createFromResource(
-            view.context,R.array.country,
+        val countryAdapter = ArrayAdapter.createFromResource(binding.root.context,R.array.country,
             android.R.layout.simple_spinner_item)
-        val adapter1 = ArrayAdapter.createFromResource(
-            view.context,R.array.country,
-            android.R.layout.simple_spinner_item)
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnersourceCountry.adapter = adapter2
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerDestCountry.adapter = adapter1
 
-        //val numberOfPassangers = view.findViewById<EditText>(R.id.numberofpassengers)
+        countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerDestCountry.adapter = countryAdapter
+        binding.spinnerSourceCountry.adapter = countryAdapter
 
-        val bookFLight = view.findViewById<Button>(R.id.book_Flight_Button)
-        bookFLight.setOnClickListener{
+        bookViewModel = ViewModelProviders.of(this).get(BookViewModel::class.java)
+        flightViewModel = ViewModelProviders.of(this).get(FlightViewModel::class.java)
 
+        val randNo = random()*1000
+
+        binding.bookFlightButton.setOnClickListener{
+            flightViewModel.getFlightByRootAndDest(binding.spinnerSourceCountry.selectedItem.toString(),
+                binding.spinnerDestCountry.selectedItem.toString()).observe(this, Observer {
+                    flight->flight?.let {
+                val book = readFields(
+                    randNo.toInt(),
+                    flight,
+                    binding.radioGroup.checkedRadioButtonId,
+                    binding.numberofpassengers.text.toString().toInt())
+                    bookViewModel.insertBook(book)
+            }
+            })
         }
 
-        return view
+        return binding.root
     }
 
+    private fun readFields(ticketNo:Int, flight: Flight, noOfWays:Int, noOfPass:Int): Book {
+        return Book(ticketNo,flight,noOfWays,noOfPass)
+    }
 }

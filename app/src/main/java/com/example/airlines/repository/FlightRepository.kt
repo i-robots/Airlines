@@ -29,6 +29,14 @@ class FlightRepository(private val flightDao: FlightDao, private val flightApiSe
         return flightDao.getFlightByNo(id)
     }
 
+    fun getFlightByDestAndRoot(root:String,dest:String):LiveData<Flight>{
+        GlobalScope.launch(Dispatchers.IO) {
+            val response: Response<Flight> = flightApiService.findByFlightByRootAsync(root).await()
+            flightDao.insertFlight(response.body()!!)
+        }
+        return flightDao.getFlightByRootAndDest(root,dest)
+    }
+
     fun insertFlight(flight: Flight){
         GlobalScope.launch(Dispatchers.IO) {
             val response: Response<Void> =

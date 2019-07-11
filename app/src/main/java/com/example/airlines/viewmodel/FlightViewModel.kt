@@ -1,7 +1,6 @@
 package com.example.airlines.viewmodel
 
 import android.app.Application
-import android.service.autofill.Transformation
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -26,9 +25,9 @@ class FlightViewModel(application: Application) : AndroidViewModel(application){
         flightRepository.insertFlight(flight)
     }
 
-    fun getFlightById(id:Int) = viewModelScope.launch(Dispatchers.IO){
-        flightRepository.getFlightById(id)
-    }
+    fun getFlightById(id:Int):LiveData<Flight> = flightRepository.getFlightById(id)
+
+    fun getFlightByRootAndDest(root:String,dest:String):LiveData<Flight> = flightRepository.getFlightByDestAndRoot(root,dest)
 
     fun updateFlight(flight: Flight) = viewModelScope.launch(Dispatchers.IO){
         flightRepository.updateFlight(flight)

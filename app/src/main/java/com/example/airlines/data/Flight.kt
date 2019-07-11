@@ -1,6 +1,5 @@
 package com.example.airlines.data
 
-
 import androidx.room.*
 import java.io.Serializable
 
